@@ -8,6 +8,10 @@ class Bst {
     this.root = null;
   }
 
+  insert(value){
+    
+  }
+
 
 }
 
