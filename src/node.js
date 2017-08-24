@@ -1,14 +1,12 @@
 'use strict';
 
 class Node {
-  constructor(data, left, right) {
-    this.data = data;
+  constructor(value, left, right) {
+    this.data = value;
     this.left = left;
     this.right = right;
   }
-  getValue() {
-    return this.data;
-  }
+
 }
 
 module.exports = Node;
