@@ -20,23 +20,35 @@ class Bst {
 
     // If the value is an operator
     if(OPS.includes(newNode.value)){
+      if(newNode.value === "+" || newNode.value === "-"){
+        newNode.left = this.root;
+        this.root = newNode;
+      } else {
+        if(this.root.right){
+          newNode.left = this.root.right;
+          this.root.right = newNode;
+        } else {
+          newNode.left = this.root;
+          this.root = newNode;
+        }
 
-
-      newNode.left = this.root;
-      this.root = newNode;
+      }
 
     } else {
+      let current = this.root;
+      while(current.right !== null){
+        current = current.right;
+      }
 
-      this.root.right = newNode;
-
+      current.right = newNode;
 
     }
 
     return this;
 
-
-
   }
+
+
 
 
 }
