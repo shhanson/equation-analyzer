@@ -3,15 +3,21 @@
   <head>
     <meta charset="utf-8">
     <title>Equation Analyzer</title>
-    <script type="text/javascript">
-      src="./src/app.js"
-    </script>
+
   </head>
   <body>
-    <form id="equation">
+    <form>
       Enter Equation Here (with spaces):
-      <input type="text" name="input">
-      <input type="submit" value="Submit">
+      <input type="text" name="input" id='equation'>
+      <input type="submit" value="Submit" id='submit'>
     </form>
+
+    <p id="result"></p>
+
+    <script type="text/javascript" src='./src/node.js'></script>
+    <script type="text/javascript" src='./src/tree.js'></script>
+    <script type="text/javascript" src="./src/app.js">
+    </script>
+
   </body>
 </html>
