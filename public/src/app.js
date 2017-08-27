@@ -1,30 +1,16 @@
-
   const Bst = require('./tree');
   const Node = require('./node');
   const COUNT = 10; //Arbitrary number of spaces for printing tree
 
-
-
-
   let args = process.argv.slice(2);
-  console.log(process.argv);
-
-  const input = args.filter((item) => {
-
-  });
-
-  args = "2 + .55";
-
-  const array = args.trim().split(' ');
 
   const tree = new Bst();
 
-  for (let i = 0; i < array.length; i++) {
-    tree.insert(array[i]);
+  for (let i = 0; i < args.length; i++) {
+    tree.insert(args[i]);
   }
 
-
-  console.log("RESULT: " + calculate(tree.root));
+  console.log(`RESULT: ${calculate(tree.root)}`)
   printTree(tree.root);
 
 
@@ -33,7 +19,31 @@
     if (!node.right && !node.left) {
       return node.value;
     }
-    return eval(`${calculate(node.left)} ${node.value} ${calculate(node.right)}`);
+
+    return evaluate(calculate(node.left), calculate(node.right), node.value);
+  }
+
+  function evaluate(op1, op2, operator){
+    op1 = Number(op1);
+    op2 = Number(op2);
+    let result;
+    switch(operator){
+      case '+':
+        result = op1+op2;
+        break;
+      case '-':
+        result = op1-op2;
+        break;
+      case 'x':
+        result = op1*op2;
+        break;
+      case '/':
+        result = op1/op2;
+        break;
+      default:
+        result = "ERROR!";
+    }
+    return result;
   }
 
   function printTree(node){

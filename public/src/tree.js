@@ -1,16 +1,14 @@
 'use strict';
 
 const Node = require('./node');
-const OPS = ['-', '+', '*', '/'];
+const OPS = ['-', '+', 'x', '/'];
 
 class Bst {
-
   constructor(){
     this.root = null;
   }
 
   insert(value){
-
     let newNode = new Node(value);
 
     if(!this.root){
@@ -31,25 +29,16 @@ class Bst {
           newNode.left = this.root;
           this.root = newNode;
         }
-
       }
-
     } else {
       let current = this.root;
       while(current.right !== null){
         current = current.right;
       }
-
       current.right = newNode;
-
     }
-
     return this;
-
   }
-
-
-
 }
 
 module.exports = Bst;

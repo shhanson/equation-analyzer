@@ -6,7 +6,6 @@ class Node {
     this.left = left;
     this.right = right;
   }
-
 }
 
 module.exports = Node;
